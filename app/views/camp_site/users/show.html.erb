@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h1 class="head-line title_h2 text-center">予約詳細</h1>
+    <div class="user-details">
+      <h2><%= @user.full_name %> 様</h2>
+      <p><strong>郵便番号：</strong> <%= @user.postal_code %></p>
+      <p><strong>住所：</strong> <%= @user.address %></p>
+      <p><strong>電話番号：</strong> <%= @user.phone_number %></p>
+      <p><strong>メールアドレス：</strong> <%= @user.email %></p>
+    </div>
+    <div class="reservation-details">
+      <h2>予約情報</h2>
+      <% @user.reservations.each do |reservation| %>
+        <div class="reservation">
+          <p><strong>プラン名：</strong> <%= reservation.plan.name %></p>
+          <p><strong>予約日時：</strong> <%= reservation.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+          <%= link_to '編集', edit_camp_site_user_reservation_path(@camp_site, @user, reservation) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

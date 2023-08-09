@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  camp_site: one
+  start_date: 2023-04-26 08:36:34
+  end_date: 2023-04-26 08:36:34
+  price: 
+  total: 
+
+two:
+  user: two
+  camp_site: two
+  start_date: 2023-04-26 08:36:34
+  end_date: 2023-04-26 08:36:34
+  price: 
+  total: 

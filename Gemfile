@@ -62,3 +62,12 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+gem "simple_calendar", "~> 2.4"
+gem 'font-awesome-sass', '~> 5.12.0'
+gem 'kaminari','~> 1.2.1'
+
+gem 'binding_of_caller'

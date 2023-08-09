@@ -1,0 +1,2 @@
+module CampSite::UsersHelper
+end

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h1 class="head-line title_h2 text-center">予約詳細</h1>
+
+    <div class="reservation-details">
+      <h3>予約情報</h3>
+      <p><strong>予約ID:</strong> <%= @reservation.id %></p>
+      <p><strong>キャンプサイト:</strong> <%= @camp_site.name %></p>
+      <p><strong>プラン:</strong> <%= @plan.name %></p>
+      <p><strong>開始日:</strong> <%= @reservation.start_date.strftime("%Y/%m/%d") %></p>
+      <p><strong>終了日:</strong> <%= @reservation.end_date.strftime("%Y/%m/%d") %></p>
+      <p><strong>ゲスト数:</strong> <%= @reservation.guests %></p>
+
+      <h3>ユーザー情報</h3>
+      <p><strong>ユーザー名:</strong> <%= @user.name %></p>
+      <p><strong>郵便番号:</strong> <%= @user.postal_code %></p>
+      <p><strong>住所:</strong> <%= @user.address %></p>
+      <p><strong>電話番号:</strong> <%= @user.phone_number %></p>
+      <p><strong>メールアドレス:</strong> <%= @user.email %></p>
+    </div>
+  </div>
+</div>

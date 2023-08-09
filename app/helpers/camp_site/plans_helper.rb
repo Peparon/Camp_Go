@@ -1,0 +1,2 @@
+module CampSite::PlansHelper
+end

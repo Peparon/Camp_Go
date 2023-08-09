@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= @camp_site.name %></h1>
+        <!--</%= attachment_image_tag @camp_site, :image, fallback: 'no_image.jpeg', size: "400x300" %>-->
+      <p><%= @camp_site.about %></p>
+    </div>
+    <div class="col-md-6">
+      <h2>プラン一覧</h2>
+      <%= @camp_site.plans.each do |plan| %>
+        <div class="plan">
+          <h3><%= plan.name %></h3>
+          <p><%= plan.about %></p>
+          <p>料金: <%= plan.price %> 円</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

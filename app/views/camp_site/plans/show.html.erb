@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="text-center">プラン詳細</h1>
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>プラン名</th>
+            <th>プラン詳細</th>
+            <th>税込価格</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @plan.name %></td>
+            <td><%= @plan.about %></td>
+            <td>¥<%= @plan.price %></td>
+            <td><%= link_to "編集する", edit_camp_site_plan_path(@camp_site, @plan), class: "btn btn-primary" %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

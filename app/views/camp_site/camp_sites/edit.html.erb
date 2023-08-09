@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <h1 class="head-line title_h2 text-center">編集画面</h1>
+      <%= form_with(model: @camp_site, url: camp_site_camp_site_url, method: :put) do |f| %>
+        <!-- </%= attachment_image_tag @camp_site, :image, size:'250x250', fallback: 'no_image.jpg', size: "250x250", class: "img-fluid mb-4" %> -->
+        <!-- </%= f.attachment_field :image %> -->
+        <div class="form-group">
+          <%= f.label :キャンプサイト名, class: "form-label" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"郵便番号(ハイフンなし)", class: "form-label" %>
+          <%= f.text_field :post_code, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :住所, class: "form-label" %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"電話番号(ハイフンなし)", class: "form-label" %>
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :キャンプ場説明, class: "form-label" %>
+          <%= f.text_area :about, class: "form-control" %>
+        </div>
+        <%= f.submit "更新", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>

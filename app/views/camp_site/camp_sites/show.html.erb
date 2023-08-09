@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <!-- </%= attachment_image_tag @camp_site, :image, class: "img-fluid mb-4" %> -->
+    </div>
+    <div class="col-lg-6">
+      <h1 class="head-line title_h2 text-center"><%= @camp_site.name %></h1>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">キャンプサイト情報</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">キャンプサイト名: <%= @camp_site.name %></li>
+            <% if @camp_site.post_code.present? %>
+              <li class="list-group-item">郵便番号: <%= @camp_site.post_code.to_s.insert(3, "-") %></li>
+            <% else %>
+              <li class="list-group-item">郵便番号: <%= @camp_site.post_code %></li>
+            <% end %>
+            <li class="list-group-item">住所: <%= @camp_site.address %></li>
+            <li class="list-group-item">電話番号: <%= @camp_site.phone_number %></li>
+            <li class="list-group-item">メールアドレス: <%= @camp_site.email %></li>
+            <li class="list-group-item">キャンプ場説明: <%= @camp_site.about %></li>
+          </ul>
+          <%= link_to "編集", edit_camp_site_camp_site_path(@camp_site), class: "btn btn-primary mt-3 btn-block" %>
+          <%= link_to "パスワードの変更", edit_camp_site_registration_path(@camp_site.id), class: "btn btn-primary btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

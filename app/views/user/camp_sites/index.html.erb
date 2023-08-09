@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <!--<div class="col-md-3">-->
+    <!--  </%= render 'admin/genres/genre_sidebar', genres: @genres %>-->
+    <!--</div>-->
+    <!--<div class="col-md-9" >-->
+    <!--  <h1 class="camp_site-title">-->
+    <!--    </% if params[:genre_id] %>-->
+    <!--      </%= @genre.name %>-->
+    <!--    </% else %>-->
+          キャンプ場一覧
+    <!--    </% end %>-->
+      <strong><font size="3">(全<%= @camp_sites.count %>件)</font></strong>
+      </h1>
+      <div class="camp_sites-list">
+        <% @camp_sites.each do |camp_site| %>
+          <!--</% if camp_site.genre.is_active == true %>-->
+            <div class="camp_sites-list-camp_site">
+              <%= link_to camp_sites_path(camp_site) do %>
+                <!--</%= attachment_image_tag camp_site, :image, fallback: 'no_image.jpeg', size: "190x150" %>-->
+              <% end %>
+              <!--</%= camp_site.name %><br>-->
+              <!--¥</%= (camp_site.price*1.1).floor.to_s(:delimited)%>(税込)-->
+            </div>
+          <!--</% end %>-->
+        <% end %>
+      </div>
+      <!--</%= paginate @camp_sites %>-->
+    <!--</div>-->
+
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1 class="camp_site-title">
+        キャンプ場一覧
+        <strong><font size="3">(全<%= @camp_sites.count %>件)</font></strong>
+      </h1>
+      <div class="camp_sites-list">
+        <% @camp_sites.each do |camp_site| %>
+          <div class="camp_sites-list-camp_site">
+            <%= link_to camp_sites_path(camp_site) do %>
+              <%#= attachment_image_tag camp_site, :image, fallback: 'no_image.jpeg', size: "190x150" %>
+            <% end %>
+            <%= camp_site.name %><br>
+            <!--¥<%#= (camp_site.price*1.1).floor.to_s(:delimited) %>(税込)-->
+          </div>
+        <% end %>
+      </div>
+      <%#= paginate @camp_sites %>
+    </div>
+  </div>
+</div>

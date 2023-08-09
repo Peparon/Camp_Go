@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h1 class="head-line title_h2 text-center">予約編集</h1>
+    <%= form_for [@camp_site, @user, @reservation] do |f| %>
+      <div class="form-group">
+        <%= f.label :plan_id, "プラン名" %>
+        <%= f.collection_select :plan_id, @camp_site.plans, :id, :name, prompt: "プランを選択してください" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :start_date, "開始日時" %>
+        <%= f.datetime_select :start_date %>
+      </div>
+      <div class="form-group">
+        <%= f.label :end_date, "終了日時" %>
+        <%= f.datetime_select :end_date %>
+      </div>
+      <div class="actions">
+        <%= f.submit "更新", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

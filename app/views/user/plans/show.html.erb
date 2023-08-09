@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <h1><%= @plan.name %></h1>
+    <p><%= @plan.about %></p>
+    <p>料金: <%= @plan.price %> 円</p>
+    
+      <% if current_user %>
+    <%= form_with(model: @reservation, url: plan_reservations_path(@plan), local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label :start_date %>
+        <%= form.text_field :start_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :end_date %>
+        <%= form.text_field :end_date, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= form.label :guests %>
+        <%= form.number_field :guests, class: "form-control" %>
+      </div>
+      <%= form.submit "予約する", class: "btn btn-primary" %>
+    <% end %>
+    <% else %>
+      <p>予約を行うにはログインしてください。</p>
+      <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary" %>
+    <% end %>
+
+  <h2>予約状況</h2>
+  <%= month_calendar reservations_path(format: :json) %>
+  </div>
+</div>
