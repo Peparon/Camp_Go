@@ -13,32 +13,115 @@
  *= require_tree .
  *= require_self
  */
+ 
 @import "bootstrap";
+@import 'jquery-ui/core';
+@import 'jquery-ui/theme';
+@import 'jquery-ui/datepicker';
 
-.header-logo {
-  position: absolute;
-  top: 50px;
-}
-
-.header-name {
-  position: absolute;
-  top: 50px;
-}
-
-.header-tag {
-  display: flex;
+.h_icon {
+  text-align: left;
+  margin-left: 20px;
+  font-size: 24px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 header {
-  border-bottom: solid 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  heigth: 80px;
   background-color: #777777;
+  z-index: 100;
 }
 
 footer {
   background-color: #777777;
-  height: 50px;
+  left: 0;
   width: 100%;
-  bottom:0;
-  position:absolute;
+  heigth: 80px;
+  bottom: 0;
+  position: fixed;
+  z-index: 100;
 }
 
+body {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.camp-site-box {
+  /* From https://css.glass */
+  background: rgba(250, 250, 250, 0.47);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.8px);
+  -webkit-backdrop-filter: blur(5.8px);
+  cursor: pointer;
+}
+
+.camp-site-box h3 {
+  color: black;
+  text-decoration: none;
+}
+
+.camp-site-box p {
+  color: black;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.plan-box {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.53);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.5px);
+  -webkit-backdrop-filter: blur(8.5px);
+
+  // display: flex;
+  // align-items: center;
+  // padding: 10px;
+}
+
+// .plan-box a.btn {
+//   display: inline-block;
+//   padding: 10px 20px;
+//   border-radius: 8px;
+//   background-color: #007bff;
+//   color: white;
+//   text-decoration: none;
+//   transition: background-color 0.3s, color 0.3s;
+// }
+
+// .plan-box a.btn:hover {
+//   background-color: #0056b3;
+// }
+
+// .plan-box a.btn {
+//   margin-right: auto;
+//   margin-left: 0;
+//   width: 150px;
+// }
+
+.plan-bottom {
+  text-align: center;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.full-day {
+  background-color: #f2f2f2;
+  cursor: not-allowed;
+}
+
+.h_icon_link {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}

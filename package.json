@@ -1,5 +1,7 @@
 {
   "name": "camp_go",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery-ui-dist": "^1.13.2"
+  }
 }

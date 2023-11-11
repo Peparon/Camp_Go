@@ -8,7 +8,7 @@ class CampSite::CampSitesController < ApplicationController
   def edit
     @camp_site = current_camp_site
   end
-
+  
   # def create
   #   @camp_site = CampSite.new(camp_site_params)
   #   if @camp_site.save

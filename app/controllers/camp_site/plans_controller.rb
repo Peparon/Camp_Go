@@ -56,7 +56,7 @@ class CampSite::PlansController < ApplicationController
   end
 
   def plan_params
-    params.require(:plan).permit(:name, :about, :price)
+    params.require(:plan).permit(:name, :about, :price, :capacity)
   end
 
 end

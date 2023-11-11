@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="head-line title_h2 text-center">予約詳細作成</h1>
+
+      <!-- プラン内容 -->
+      <div class="form-group">
+        <label>予約キャンプ場名</label>
+        <p><%= @camp_site.name %></p>
+      </div>
+      <div class="form-group">
+        <label>予約プラン名</label>
+        <p><%= @plan.name %></p>
+      </div>
+
+      <!-- フォーム -->
+      <% @plan = Plan.find(params[:plan_id]) %>
+      <%= form_with model: @reservation, url: reservations_path(plan_id: @plan), method: :post, local: true do |form| %>
+        <!-- 詳細選択 -->
+        <div class="form-group">
+          <%= form.label :start_date, "チェックイン日" %>
+          <%= form.text_field :start_date, class: "form-control", placeholder: "MM/DD", data: { format: 'MM/DD' }, readonly: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :end_date, "チェックアウト日" %>
+          <%= form.text_field :end_date, class: "form-control", placeholder: "MM/DD", data: { format: 'MM/DD' }, readonly: true %>
+        </div>
+
+        <!--<div class="form-group">-->
+        <!--  <%#= form.label :stay_nights, "宿泊日数" %>-->
+        <!--  <%#= form.number_field :stay_nights, class: "form-control", value: (@reservation.end_date - @reservation.start_date).to_i, readonly: true %>-->
+        <!--</div>-->
+
+        <!-- 情報入力 -->
+        <div class="form-group">
+          <label>氏名</label>
+          <%= form.text_field :last_name, class: "form-control", value: current_user.last_name, readonly: true %>
+          <%= form.text_field :first_name, class: "form-control", value: current_user.first_name, readonly: true %>
+        </div>
+
+        <div class="form-group">
+          <label>郵便番号（ハイフンなし）</label>
+          <%#= form.text_field :postal_code, class: "form-control", value: current_user.postal_code %>
+          <%= form.text_field :post_code, class: "form-control", value: current_user.post_code, readonly: true %>
+        </div>
+
+        <div class="form-group">
+          <label>住所</label>
+          <%#= form.text_area :address, class: "form-control", value: current_user.address %>
+          <%= form.text_area :address, class: "form-control", value: current_user.address, readonly: true %>
+        </div>
+
+        <!-- 金額詳細 -->
+        <div class="form-group">
+          <label>小計</label>
+          <p><%= @plan.price.round %> 円</p>
+        </div>
+
+        <div class="form-group">
+          <label>消費税</label>
+          <p><%= (@plan.price * 0.1).round %> 円</p>
+        </div>
+
+        <div class="form-group">
+          <label>お支払い合計</label>
+          <p><%= (@plan.price * 1.1).round %> 円</p>
+        </div>
+
+        <!-- 予約ボタン -->
+        <div class="actions text-center">
+          <%= form.submit "予約完了", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

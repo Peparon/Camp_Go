@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_04_065456) do
+ActiveRecord::Schema.define(version: 2023_08_21_114923) do
 
   create_table "camp_sites", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2023_07_04_065456) do
     t.integer "camp_site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "capacity"
     t.index ["camp_site_id"], name: "index_plans_on_camp_site_id"
   end
 
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2023_07_04_065456) do
     t.bigint "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "plan_id"
     t.index ["camp_site_id"], name: "index_reservations_on_camp_site_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end

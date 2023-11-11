@@ -1,13 +1,12 @@
 <header>
  <div class="container">
   <div class="row">
-   <div class="col-md-4">
+   <div class="col-md-4 d-flex align-items-center">
     <!--ロゴ-->
-    <nav>
-     <% if camp_site_signed_in? %>
-      <%= link_to "CampGO", camp_site_users_path %>
-     <% else %>
-      <%= link_to "CampGO", root_path %>
+    <nav class="h_icon">
+     <%= link_to camp_site_signed_in? ? camp_site_users_path : root_path, class: 'h_icon_link' do %>
+       <i class="fa-solid fa-campground fa-bounce" style="color: #31af3a;"></i>
+       CampGO
      <% end %>
     </nav>
    </div>
@@ -30,7 +29,7 @@
         <!--キャンプサイト-->
         <%= link_to "マイページ", camp_site_camp_site_path(current_camp_site), class: 'btn btn-outline-light' %>
         <%= link_to "予約者一覧", camp_site_users_path, class: 'btn btn-outline-light' %>
-        <%= link_to "プラン", camp_site_plans_path, class: 'btn btn-outline-light' %>
+        <%= link_to "プラン", camp_site_plans_path(camp_site_id: current_camp_site.id), class: 'btn btn-outline-light' %>
         <%= link_to "ログアウト", destroy_camp_site_session_path, method: :delete, class: 'btn btn-outline-light' %>
        </ul>
       <!--</div>-->

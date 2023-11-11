@@ -10,6 +10,7 @@
             <th>プラン名</th>
             <th>プラン詳細</th>
             <th>税込価格</th>
+            <th>定員数</th>
             <th></th>
           </tr>
         <tbody>
@@ -18,6 +19,7 @@
               <td><%= plan.name %></td>
               <td><%= plan.about %></td>
               <td>¥<%= plan.price %></td>
+              <td><%= plan.capacity %></td>
               <td><%= link_to "編集", edit_camp_site_plan_path(plan), class: "btn btn-primary" %></td>
             </tr>
           <% end %>

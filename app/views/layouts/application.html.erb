@@ -5,11 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://fontawesome.com/icons/campground?f=classic&s=duotone&an=bounce" crossorigin="anonynous"></script>
+    <!--jQuery UI-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/swanky-purse/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--アイコン Font Awesome-->
+    <script src="https://kit.fontawesome.com/3a2b185d2c.js" crossorigin="anonymous"></script>
+    <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" rel="stylesheet">
+    
   </head>
-
   <body>
     <%= render "layouts/header" %>
     <%= yield %>

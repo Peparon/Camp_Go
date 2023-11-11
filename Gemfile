@@ -69,5 +69,5 @@ gem "refile-mini_magick"
 gem "simple_calendar", "~> 2.4"
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'kaminari','~> 1.2.1'
+gem 'jquery-ui-rails'
 
-gem 'binding_of_caller'

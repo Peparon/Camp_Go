@@ -16,10 +16,16 @@ Rails.application.routes.draw do
 
   namespace :camp_site do
     # get "users/index" => "users#index"
-    resources :camp_sites
-    resources :users
+    resources :camp_sites do
+      resources :plans do
+        resources :reservations, only: [:new, :create]
+      end
+    end
+    resources :users do
+      resources :reservations, only: [:index, :show]
+    end
     resources :plans
-    resources :reservations
+    # resources :reservations
     # get "plans/index/" => "plans#index"
     # get ":id", to: "camp_sites#show", as: "show"
     # get ""
@@ -27,10 +33,16 @@ Rails.application.routes.draw do
 
   scope module: :user do
     root 'camp_sites#index'
-    resources :camp_sites, only: [:index]
+    resources :camp_sites do
+      # get 'get_plan_details', on: :collection
+      resources :plans do
+        resources :reservations, only: [:new, :create], module: :camp_site
+      end
+    end
     get "users" => "users#show"
     resources :plans do
-      resources :reservations, only: [:create]
+      resources :reservations, only: [:new, :create]
+      # get '/reservations/new', to: 'reservations#new', as: 'new_reservation'
     end
     resources :users, only: [:show, :create, :edit, :update] do
       member do
@@ -38,13 +50,13 @@ Rails.application.routes.draw do
         patch "withdraw"
       end
     end
+    resources :reservations do
+      collection do
+        get :thanks
+      end
+    end
   end
 
-
-
-  # resources :reservations, only: [:index]
-
-  # get 'reservations/calendar', to: 'reservations#calendar', as: 'calendar'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

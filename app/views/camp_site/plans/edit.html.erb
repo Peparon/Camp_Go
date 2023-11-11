@@ -19,6 +19,11 @@
           <%= f.label :price, "金額", class: "form-label" %>
           <%= f.number_field :price, class: "form-control" %>
         </div>
+        
+        <div class="field">
+          <%= f.label :capacity, "定員数" %>
+          <%= f.number_field :capacity %>
+        </div>
 
         <div class="text-right">
           <%= f.submit "更新", class: "btn btn-primary" %>

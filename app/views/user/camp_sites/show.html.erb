@@ -1,19 +1,53 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+      <!-- <&%= attachment_image_tag @camp_site, :image, fallback: 'no_image.jpeg', size: "400x300" %> -->
       <h1><%= @camp_site.name %></h1>
-        <!--</%= attachment_image_tag @camp_site, :image, fallback: 'no_image.jpeg', size: "400x300" %>-->
       <p><%= @camp_site.about %></p>
+
     </div>
     <div class="col-md-6">
       <h2>プラン一覧</h2>
-      <%= @camp_site.plans.each do |plan| %>
-        <div class="plan">
-          <h3><%= plan.name %></h3>
-          <p><%= plan.about %></p>
-          <p>料金: <%= plan.price %> 円</p>
+      <% @camp_site.plans.each do |plan| %>
+        <div class="mb-4">
+          <div class="mb-4" data-plan-name="<%= plan.name %>" data-plan-about="<%= plan.about %>">
+            <div class="plan-box">
+              <h3 class="card-title"><%= @camp_site.id %> - <%= plan.id %><%= plan.name %></h3>
+              <p class="card-text"><%= plan.about %></p>
+              <p class="card-text">料金: <%= plan.price %> 円</p>
+              <div class="plan-bottom">
+                <%= link_to '詳細', new_plan_reservation_path(plan_id: plan.id, camp_site_id: @camp_site.id), class: 'btn btn-primary btn-sm text-center w-100', remote: true, data: { toggle: 'modal', target: '#reservationModal', plan_name: plan.name, plan_about: plan.about, plan_price: plan.price, camp_site_id: @camp_site.id, plan_id: plan.id } %>
+                <%#= button_tag '詳細', remote: true, data: {toggle: 'modal', target: '#reservationModal', plan_name: plan.name, plan_about: plan.about, plan_price: plan.price, camp_site_id: @camp_site.id, plan_id: plan.id }, class: 'show-plan-details btn btn-primary btn-sm text-center w-100' %>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
+<!--JavaScriptでのモーダルウィンドウ表示-->
+<div class="modal fade" id="reservationModal" tabindex="-1" role="dialog" aria-labelledby="planDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="planDetailModalLabel">
+          <span id="PlanName"></span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- プランの詳細情報 -->
+        <p><span id="PlanAbout"></span></p>
+        <p><span id="PlanPrice"></span></p>
+        <!-- 予約入力フォーム -->
+        <%= render 'user/reservations/form', plan: @plan, camp_site: @camp_site %>
+        </input>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <%= form_with(model: @reservation, url: new_plan_reservation_path(plan_id: 19), local: true, method: :get) do |form| %>
+        <%= form.hidden_field :camp_site_id, value: @camp_site.id %>
+        <!--<&%= form.hidden_field :plan_id, value: @plan.id %>-->
+
+        <div class="form-group row">
+          <div class="col">
+            <%= form.label :start_date, "イン" %>
+            <%= text_field_tag :start_date, nil, id: "start_datepicker", class: "form-control", autocomplete: "off" %>
+          </div>
+
+          <div class="col">
+            <%= form.label :end_date, "アウト" %>
+            <%= text_field_tag :end_date, nil, id: "end_datepicker", class: "form-control", autocomplete: "off" %>
+          </div>
+        </div>
+
+        <div class="actions text-center">
+          <%= form.submit "予約する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
