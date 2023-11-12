@@ -2,6 +2,7 @@ class User::CampSitesController < ApplicationController
 
   def index
     @camp_sites = CampSite.all
+    
     # @camp_sites = CampSite.page(params[:page]).per(12)
 
   end
@@ -10,7 +11,7 @@ class User::CampSitesController < ApplicationController
     @camp_site = CampSite.find(params[:id])
     # @plans = @camp_site.plans
     # @plan = @camp_site.plan.find(params[:plan_id])
-
+    @reservations = @camp_site.reservations.includes(:user, :plan)
     @reservation = Reservation.new(start_date: Date.today, end_date: Date.today + 1.day)
 
     render 'show'

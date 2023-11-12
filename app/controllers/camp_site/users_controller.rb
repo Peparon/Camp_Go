@@ -3,6 +3,10 @@ class CampSite::UsersController < ApplicationController
 
   def index
     @users = User.all
+
+    # @user = User.find(params[:id])
+    # @reservations = @user.reservations.includes(:camp_site, :plan)
+
     # @camp_site = CampSite.find(params[:camp_site_id])
     # @users = @camp_site.reservations.map(&:user)
   end

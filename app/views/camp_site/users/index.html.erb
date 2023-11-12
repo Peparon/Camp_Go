@@ -15,7 +15,7 @@
             <tr>
               <td><%= user.full_name %> 様</td>
               <td><%= reservation.plan.name %></td>
-              <td><%= reservation.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+              <td><%= reservation.start_date.strftime('%Y-%m-%d') %> 〜 <%= reservation.end_date.strftime('%Y-%m-%d') %></td>
               <td>
                 <%#= link_to "詳細", user_reservation_path(user, reservation), class: "btn btn-primary" %>
               </td>

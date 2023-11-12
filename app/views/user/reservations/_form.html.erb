@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <%= form_with(model: @reservation, url: new_plan_reservation_path(plan_id: 19), local: true, method: :get) do |form| %>
+      <%= form_with(model: @reservation, url: new_plan_reservation_path(plan_id: "@@"), local: true, method: :get, id:"modalForm") do |form| %>
         <%= form.hidden_field :camp_site_id, value: @camp_site.id %>
-        <!--<&%= form.hidden_field :plan_id, value: @plan.id %>-->
+        <%#= form.hidden_field :plan_id, value: @plan.id %>
 
         <div class="form-group row">
           <div class="col">

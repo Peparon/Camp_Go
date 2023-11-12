@@ -10,7 +10,7 @@
       <h2>プラン一覧</h2>
       <% @camp_site.plans.each do |plan| %>
         <div class="mb-4">
-          <div class="mb-4" data-plan-name="<%= plan.name %>" data-plan-about="<%= plan.about %>">
+          <div class="mb-4 target-modal-data" data-plan-name="<%= plan.name %>" data-plan-about="<%= plan.about %>" data-plan-price="<%= plan.price %>" data-plan-id="<%= plan.id %>">
             <div class="plan-box">
               <h3 class="card-title"><%= @camp_site.id %> - <%= plan.id %><%= plan.name %></h3>
               <p class="card-text"><%= plan.about %></p>
@@ -44,7 +44,7 @@
         <p><span id="PlanAbout"></span></p>
         <p><span id="PlanPrice"></span></p>
         <!-- 予約入力フォーム -->
-        <%= render 'user/reservations/form', plan: @plan, camp_site: @camp_site %>
+        <%= render 'user/reservations/form', camp_site: @camp_site %>
         </input>
       </div>
     </div>
