@@ -10,10 +10,9 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.each do |user| %>
-          <% user.reservations.each do |reservation| %>
+          <% @reservations.each do |reservation| %>
             <tr>
-              <td><%= user.full_name %> 様</td>
+              <td><%= reservation.user.full_name %> 様</td>
               <td><%= reservation.plan.name %></td>
               <td><%= reservation.start_date.strftime('%Y-%m-%d') %> 〜 <%= reservation.end_date.strftime('%Y-%m-%d') %></td>
               <td>
@@ -21,7 +20,6 @@
               </td>
             </tr>
           <% end %>
-        <% end %>
       </tbody>
     </table>
   </div>

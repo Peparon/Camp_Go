@@ -2,7 +2,8 @@ class CampSite::UsersController < ApplicationController
   before_action :authenticate_camp_site!
 
   def index
-    @users = User.all
+    # @users = User.all
+    @reservations = current_camp_site.reservations
 
     # @user = User.find(params[:id])
     # @reservations = @user.reservations.includes(:camp_site, :plan)

@@ -32,6 +32,8 @@ class User::ReservationsController < ApplicationController
     #   flash[:notice] = "予約が完了しました。"
     # end
     #   redirect_to plan
+    
+
     @reservation = current_user.reservations.build(reservation_params)
     @reservation.plan_id = params[:plan_id]
     if @reservation.save
@@ -46,7 +48,7 @@ class User::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :camp_site_id)
+    params.require(:reservation).permit(:start_date, :end_date)
   end
 
 end
