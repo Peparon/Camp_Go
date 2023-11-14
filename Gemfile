@@ -71,3 +71,7 @@ gem 'font-awesome-sass', '~> 5.12.0'
 gem 'kaminari','~> 1.2.1'
 gem 'jquery-ui-rails'
 
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
