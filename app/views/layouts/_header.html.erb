@@ -1,45 +1,37 @@
 <header>
- <div class="container">
-  <div class="row">
-   <div class="col-md-4 d-flex align-items-center">
-    <!--ロゴ-->
-    <nav class="h_icon">
-     <%= link_to camp_site_signed_in? ? camp_site_users_path : root_path, class: 'h_icon_link' do %>
-       <i class="fas fa-campground" style="color: #31af3a;"></i>
-       CampGO
-     <% end %>
-    </nav>
-   </div>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <%= link_to camp_site_signed_in? ? camp_site_users_path : root_path, class: 'navbar-brand h_icon_link' do %>
+        <i class="fas fa-campground" style="color: #31af3a;"></i>
+        CampGO
+      <% end %>
 
-     <% if user_signed_in? %>
-      <div class="col-md-4">
-       <!--ユーザー-->
-       <li class="user-name">
-        ようこそ、<%= current_user.first_name %>さん！
-       </li>
-      <!--</div>-->
-      <!--<div class="col-md-4">-->
-        <%= link_to "TOP", root_path, class: 'btn btn-outline-light' %>
-        <%= link_to "マイページ", user_path(current_user), class: 'btn btn-outline-light' %>
-        <!--予約確認-->
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light' %>
-      <!--</div>-->
-     <% elsif camp_site_signed_in? %>
-      <!--<div>-->
-        <!--キャンプサイト-->
-        <%= link_to "マイページ", camp_site_camp_site_path(current_camp_site), class: 'btn btn-outline-light' %>
-        <%= link_to "予約者一覧", camp_site_users_path, class: 'btn btn-outline-light' %>
-        <%= link_to "プラン", camp_site_plans_path(camp_site_id: current_camp_site.id), class: 'btn btn-outline-light' %>
-        <%= link_to "ログアウト", destroy_camp_site_session_path, method: :delete, class: 'btn btn-outline-light' %>
-       </ul>
-      <!--</div>-->
-     <% else %>
-      <!--<div>-->
-        <!--ログアウト-->
-        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-light' %>
-        <%= link_to "ログイン", new_user_session_path, class: 'btn btn-outline-light' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ml-md-auto">
+          <% if user_signed_in? %>
+            <p class="user-name">
+              ようこそ、<%= current_user.first_name %>さん！
+            </p>
+            <%= link_to "TOP", root_path, class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "マイページ", user_path(current_user), class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger mx-1' %>
+          <% elsif camp_site_signed_in? %>
+            <%= link_to "マイページ", camp_site_camp_site_path(current_camp_site), class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "予約者一覧", camp_site_users_path, class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "プラン", camp_site_plans_path(camp_site_id: current_camp_site.id), class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "ログアウト", destroy_camp_site_session_path, method: :delete, class: 'btn btn-outline-danger mx-1' %>
+          <% else %>
+            <%= link_to "ユーザー様新規登録", new_user_registration_path, class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "ユーザー様ログイン", new_user_session_path, class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "施設様新規登録", new_camp_site_registration_path, class: 'btn btn-outline-success mx-1' %>
+            <%= link_to "施設様ログイン", new_camp_site_session_path, class: 'btn btn-outline-success mx-1' %>
+          <% end %>
+        </div>
       </div>
-     <% end %>
-  </div>
- </div>
+    </div>
+  </nav>
 </header>
