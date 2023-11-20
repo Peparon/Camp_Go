@@ -10,6 +10,6 @@ class CreatePlans < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     
-    add_foreign_key :reservations, :camp_sites
+    add_foreign_key :plans, :camp_sites
   end
 end
