@@ -5,9 +5,11 @@ class CreatePlans < ActiveRecord::Migration[5.2]
       t.integer :price
       t.integer :capacity
       t.text :about
-      t.references :camp_site, foreign_key: true
+      t.bigint :camp_site_id
 
       t.timestamps
     end
+    
+    add_foreign_key :reservations, :camp_sites
   end
 end
